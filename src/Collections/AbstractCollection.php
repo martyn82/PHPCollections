@@ -5,7 +5,7 @@ abstract class AbstractCollection implements Collection {
 	/**
 	 * @var array
 	 */
-	private $elements;
+	protected $elements;
 
 	/**
 	 * Constructs a new collection instance.
