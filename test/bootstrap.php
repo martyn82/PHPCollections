@@ -1,40 +1,15 @@
 <?php
+$testPath = realpath( __DIR__ );
+$sourcePath = realpath( __DIR__ . DIRECTORY_SEPARATOR . '../src' );
 
-class AutoLoader {
-    private static $classes = array();
-    
-    public static function registerDirectory( $dir ) {
-        $iterator = new DirectoryIterator( $dir );
-        
-        foreach ( $iterator as $file ) {
-            if ( $file->isDir() && !$file->isLink() && !$file->isDot() ) {
-                self::registerDirectory( $file->getPathname() );
-            }
-            else if ( substr( $file->getFilename(), -4 ) == '.php' ) {
-                $class = substr( $file->getFilename(), 0, -4 );
-                self::registerClass( $class, $file->getPathname() );
-            }
-        }
-    }
-    
-    public static function registerClass( $class, $fileName ) {
-        self::$classes[ $class ] = $fileName;
-    }
-    
-    public static function loadClass( $className ) {
-        $classParts = explode( '\\', $className );
-        $className = end( $classParts );
-        
-        if ( isset( self::$classes[ $className ] ) ) {
-            require_once self::$classes[ $className ];
-        }
-    }
-}
+spl_autoload_register( function ( $className ) use ( $testPath, $sourcePath ) {
+	$fileName = str_replace( '\\', DIRECTORY_SEPARATOR, $className ) . '.php';
 
-set_include_path( get_include_path() . PATH_SEPARATOR . '/usr/lib/php/PHPUnit' );
-spl_autoload_register( array( 'AutoLoader', 'loadClass' ) );
+	$paths = array( $testPath, $sourcePath );
 
-Autoloader::registerDirectory( '../src/' );
-AutoLoader::registerDirectory( 'lib/' );
+	foreach ( $paths as $path ) {
+		@include_once $path . DIRECTORY_SEPARATOR . $fileName;
+	}
+} );
 
-require_once 'PHPUnit/Autoload.php';
+require_once 'PHPUnit' . DIRECTORY_SEPARATOR . 'Autoload.php';

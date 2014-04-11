@@ -1,90 +1,103 @@
 <?php
 namespace Collections;
 
-interface Collection {
-    /**
-     * Adds item to the collection.
-     * 
-     * @param mixed $item
-     */
-    function add( $item );
-    
-    /**
-     * Adds all items in the collection to the collection.
-     * 
-     * @param Collection $collection
-     */
-    function addAll( Collection $collection );
-    
-    /**
-     * Clears the collection.
-     */
-    function clear();
-    
-    /**
-     * Determines whether the given item is in the collection.
-     * 
-     * @param mixed $item
-     * 
-     * @return boolean
-     */
-    function contains( $item );
-    
-    /**
-     * Determines whether all items of the collection are in the collection.
-     * 
-     * @param Collection $collection
-     * 
-     * @return boolean
-     */
-    function containsAll( Collection $collection );
-    
-    /**
-     * Determines whether the collection is empty.
-     * 
-     * @return boolean
-     */
-    function isEmpty();
-    
-    /**
-     * Retrieves an iterator for the collection.
-     * 
-     * @return \Iterator
-     */
-    function iterator();
-    
-    /**
-     * Removes the given item from the collection.
-     * 
-     * @param mixed $item
-     */
-    function remove( $item );
-    
-    /**
-     * Removes all the items of the given collection from the collection.
-     * 
-     * @param Collection $collection
-     */
-    function removeAll( Collection $collection );
-    
-    /**
-     * Modifies this collection and keeps all intersecting elements.
-     * 
-     * @param Collection $collection
-     */
-    function retainAll( Collection $collection );
-    
-    /**
-     * Retrieves the number of items in the collection.
-     * 
-     * @return integer
-     */
-    function size();
-    
-    /**
-     * Converts the collection to an array.
-     * 
-     * @return array
-     */
-    function toArray();
+interface Collection extends \IteratorAggregate {
+	/**
+	 * Adds the given element to the collection.
+	 *
+	 * @param mixed $element
+	 *
+	 * @return boolean <code>true</code> if the collection has changed as a result of the call.
+	 */
+	function add( $element );
+
+	/**
+	 * Adds all of the elements in the given collection to this collection.
+	 *
+	 * @param Collection $elements
+	 *
+	 * @return boolean <code>true</code> if this collection has changed as a result of the call.
+	*/
+	function addAll( Collection $elements );
+
+	/**
+	 * Removes all of the elements from this collection.
+	*/
+	function clear();
+
+	/**
+	 * Returns <code>true</code> if this collection contains the given element.
+	 *
+	 * @param mixed $element
+	 *
+	 * @return boolean
+	*/
+	function contains( $element );
+
+	/**
+	 * Returns <code>true</code> if this collection contains all of the elements in the specified collection.
+	 *
+	 * @param Collection $elements
+	 *
+	 * @return boolean
+	*/
+	function containsAll( Collection $elements );
+
+	/**
+	 * Returns <code>true</code> if this collection is empty.
+	 *
+	 * @return boolean
+	*/
+	function isEmpty();
+
+	/**
+	 * Returns an iterator over the elements of this collection.
+	 *
+	 * @see IteratorAggregate::getIterator()
+	 *
+	 * @return \Iterator
+	*/
+	function getIterator();
+
+	/**
+	 * Removes a single instance of the specified element from the collection, if it is present.
+	 *
+	 * @param mixed $element
+	 *
+	 * @return boolean <code>true</code> if the collection has changed as a result of the call.
+	*/
+	function remove( $element );
+
+	/**
+	 * Removes all of this collection's elements that are also contained in the specified collection. As a result, this
+	 * collection will contain no elements in common with the specified collection.
+	 *
+	 * @param Collection $elements
+	 *
+	 * @return boolean <code>true</code> if this collection has changed as a result of the call.
+	*/
+	function removeAll( Collection $elements );
+
+	/**
+	 * Retains only the elements in this collection that are contained in the specified collection.
+	 *
+	 * @param Collection $elements
+	 *
+	 * @return boolean <code>true</code> if this collection has changed as a result of the call.
+	*/
+	function retainAll( Collection $elements );
+
+	/**
+	 * Returns the number of elements in this collection.
+	 *
+	 * @return integer
+	*/
+	function size();
+
+	/**
+	 * Returns an array containing all the elements in this collection.
+	 *
+	 * @return array
+	*/
+	function toArray();
 }
