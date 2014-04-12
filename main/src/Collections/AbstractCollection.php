@@ -54,7 +54,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::containsAll()
 	 */
 	public function containsAll( Collection $elements ) {
-		return \count( \array_diff( $elements->toArray(), $this->elements ) ) == 0;
+		return \count( \array_diff( (array) $elements->toArray(), $this->elements ) ) == 0;
 	}
 
 	/**
@@ -103,7 +103,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::retainAll()
 	 */
 	public function retainAll( Collection $elements ) {
-		$newElements = \array_values( \array_intersect( $this->elements, $elements->toArray() ) );
+		$newElements = \array_values( \array_intersect( $this->elements, (array) $elements->toArray() ) );
 		$result = $newElements != $this->elements;
 		$this->elements = $newElements;
 		return $result;
@@ -120,6 +120,6 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::toArray()
 	 */
 	public function toArray() {
-		return $this->elements;
+		return new \ArrayObject( $this->elements );
 	}
 }

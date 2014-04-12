@@ -148,7 +148,7 @@ class AbstractListTest extends \TestCase {
 			'bar',
 			'baz'
 		);
-		self::assertEquals( $expected, $subList->toArray() );
+		self::assertEquals( $expected, (array) $subList->toArray() );
 
 		$subList = $list->subList( 1, 1 );
 		self::assertTrue( $subList->isEmpty() );

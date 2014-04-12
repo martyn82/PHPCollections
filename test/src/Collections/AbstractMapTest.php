@@ -74,7 +74,7 @@ class AbstractMapTest extends \TestCase {
 			'baz'
 		);
 
-		self::assertEquals( $expected, $keys->toArray() );
+		self::assertEquals( $expected, (array) $keys->toArray() );
 	}
 
 	/**
@@ -179,7 +179,7 @@ class AbstractMapTest extends \TestCase {
 			'barValue'
 		);
 
-		self::assertEquals( $expected, $values->toArray() );
+		self::assertEquals( $expected, (array) $values->toArray() );
 	}
 }
 

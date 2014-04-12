@@ -162,7 +162,8 @@ class AbstractCollectionTest extends \TestCase {
 			1 => 'baz'
 		);
 
-		self::assertEquals( $expected, $actual );
+		self::assertInstanceOf( '\ArrayAccess', $actual );
+		self::assertEquals( $expected, (array) $actual );
 	}
 }
 
