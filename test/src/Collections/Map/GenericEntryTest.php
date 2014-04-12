@@ -20,4 +20,9 @@ class GenericEntryTest extends \TestCase {
 		$entry->setValue( $newValue );
 		self::assertEquals( $newValue, $entry->getValue() );
 	}
+
+	public function testToStringConversionYieldsKey() {
+		$entry = new GenericEntry( 'foo', 'bar' );
+		self::assertEquals( 'foo', $entry->__toString() );
+	}
 }

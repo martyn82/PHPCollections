@@ -24,4 +24,11 @@ interface Entry {
 	 * @return mixed The old value corresponding to this entry.
 	*/
 	function setValue( $value );
+
+	/**
+	 * Converts this object to its string representation.
+	 *
+	 * @return string
+	 */
+	function __toString();
 }

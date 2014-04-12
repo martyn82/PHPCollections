@@ -13,7 +13,7 @@ class GenericEntry implements Entry {
 	private $value;
 
 	/**
-	 * Constructs a MapEntry instance.
+	 * Constructs a GenericEntry instance.
 	 *
 	 * @param mixed $key
 	 * @param mixed $value
@@ -24,25 +24,32 @@ class GenericEntry implements Entry {
 	}
 
 	/**
-	 * @see MapEntry::getKey()
+	 * @see Entry::getKey()
 	 */
 	public function getKey() {
 		return $this->key;
 	}
 
 	/**
-	 * @see MapEntry::getValue()
+	 * @see Entry::getValue()
 	 */
 	public function getValue() {
 		return $this->value;
 	}
 
 	/**
-	 * @see MapEntry::setValue()
+	 * @see Entry::setValue()
 	 */
 	public function setValue( $value ) {
 		$previous = $this->value;
 		$this->value = $value;
 		return $previous;
+	}
+
+	/**
+	 * @see Entry::__toString()
+	 */
+	public function __toString() {
+		return $this->getKey();
 	}
 }
