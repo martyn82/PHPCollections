@@ -3,6 +3,4 @@
 set -e
 set -u
 
-#composer self-update
-#composer install
 ./run-tests
