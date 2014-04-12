@@ -9,4 +9,5 @@ branches:
     - master
 
 script:
+  - composer self-update
   - ./run-tests
