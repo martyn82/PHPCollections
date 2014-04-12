@@ -54,7 +54,12 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::containsAll()
 	 */
 	public function containsAll( Collection $elements ) {
-		return \count( \array_diff( (array) $elements->toArray(), $this->elements ) ) == 0;
+		return \count(
+			\array_diff(
+				(array) $elements->toArray(),
+				$this->elements
+			)
+		) == 0;
 	}
 
 	/**
