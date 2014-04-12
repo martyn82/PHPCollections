@@ -154,7 +154,7 @@ class AbstractCollectionTest extends \TestCase {
 		$collection->add( 'bar' );
 		$collection->add( 'baz' );
 
-		$collection->remove( 'bar' ); // should not adjust the index positions
+		$collection->remove( 'bar' ); // this call should not create a gap in the index sequence
 
 		$actual = $collection->toArray();
 		$expected = array(
@@ -162,7 +162,7 @@ class AbstractCollectionTest extends \TestCase {
 			1 => 'baz'
 		);
 
-		self::assertInstanceOf( '\ArrayAccess', $actual );
+		self::assertInstanceOf( '\ArrayObject', $actual );
 		self::assertEquals( $expected, (array) $actual );
 	}
 }

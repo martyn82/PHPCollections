@@ -97,7 +97,7 @@ interface Collection extends \IteratorAggregate {
 	/**
 	 * Returns an array containing all the elements in this collection.
 	 *
-	 * @return \ArrayAccess
+	 * @return \ArrayObject
 	*/
 	function toArray();
 }

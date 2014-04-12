@@ -201,7 +201,9 @@ class HashMap extends AbstractMap implements Map {
 	 * @return integer
 	 */
 	protected function hashKey( $key ) {
-		return \crc32( $key );
+		return \is_object( $key )
+			? \spl_object_hash( $key )
+			: \crc32( $key );
 	}
 
 	/**

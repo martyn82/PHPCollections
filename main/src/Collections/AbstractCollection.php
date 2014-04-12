@@ -108,7 +108,12 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::retainAll()
 	 */
 	public function retainAll( Collection $elements ) {
-		$newElements = \array_values( \array_intersect( $this->elements, (array) $elements->toArray() ) );
+		$newElements = \array_values(
+			\array_intersect(
+				$this->elements,
+				(array) $elements->toArray()
+			)
+		);
 		$result = $newElements != $this->elements;
 		$this->elements = $newElements;
 		return $result;
