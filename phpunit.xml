@@ -21,12 +21,12 @@
 	verbose="false">
 	<testsuites>
 		<testsuite name="Collections">
-			<directory suffix="Test.php">./test/lib</directory>
+			<directory suffix="Test.php">./test/src</directory>
 		</testsuite>
 	</testsuites>
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">./src</directory>
+			<directory suffix=".php">./main/src</directory>
 		</whitelist>
 	</filter>
 	<logging>
