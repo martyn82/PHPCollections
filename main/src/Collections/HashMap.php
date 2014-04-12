@@ -1,7 +1,7 @@
 <?php
 namespace Collections;
 
-class HashMap extends AbstractMap {
+class HashMap extends AbstractMap implements Map {
 	/**
 	 * @var array
 	 */
