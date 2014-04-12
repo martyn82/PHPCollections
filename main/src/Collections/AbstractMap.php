@@ -26,6 +26,7 @@ abstract class AbstractMap implements Map {
 	 */
 	public function containsKey( $key ) {
 		foreach ( $this->entries->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			if ( $entry->getKey() === $key ) {
 				return true;
 			}
@@ -39,6 +40,7 @@ abstract class AbstractMap implements Map {
 	 */
 	public function containsValue( $value ) {
 		foreach ( $this->entries->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			if ( $entry->getValue() === $value ) {
 				return true;
 			}
@@ -59,6 +61,7 @@ abstract class AbstractMap implements Map {
 	 */
 	public function get( $key ) {
 		foreach ( $this->entries->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			if ( $entry->getKey() === $key ) {
 				return $entry->getValue();
 			}
@@ -81,6 +84,7 @@ abstract class AbstractMap implements Map {
 		$set = $this->createSet();
 
 		foreach ( $this->entries->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			$set->add( $entry->getKey() );
 		}
 
@@ -108,6 +112,7 @@ abstract class AbstractMap implements Map {
 	 */
 	public function putAll( Map $map ) {
 		foreach ( $map->entrySet()->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			$this->put( $entry->getKey(), $entry->getValue() );
 		}
 	}
@@ -119,6 +124,7 @@ abstract class AbstractMap implements Map {
 		$iterator = $this->entries->getIterator();
 
 		foreach ( $iterator as $entry ) {
+			/* @var $entry Map\Entry */
 			if ( $entry->getKey() === $key ) {
 				$value = $entry->getValue();
 				$result = $this->entries->remove( $entry );
@@ -143,6 +149,7 @@ abstract class AbstractMap implements Map {
 		$collection = $this->createCollection();
 
 		foreach ( $this->entries->getIterator() as $entry ) {
+			/* @var $entry Map\Entry */
 			$collection->add( $entry->getValue() );
 		}
 

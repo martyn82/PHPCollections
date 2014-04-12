@@ -28,7 +28,7 @@ interface Map {
 	/**
 	 * Returns a <code>Set</code> view of the mappings contained in this map.
 	 *
-	 * @return MapEntrySet
+	 * @return Map\EntrySet
 	*/
 	function entrySet();
 
