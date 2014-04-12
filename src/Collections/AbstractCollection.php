@@ -46,7 +46,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::contains()
 	 */
 	public function contains( $element ) {
-		$index = array_search( $element, $this->elements );
+		$index = array_search( $element, $this->elements, true );
 		return $index !== false;
 	}
 
@@ -75,7 +75,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::remove()
 	 */
 	public function remove( $element ) {
-		$index = array_search( $element, $this->elements );
+		$index = array_search( $element, $this->elements, true );
 
 		if ( $index === false ) {
 			return false;
