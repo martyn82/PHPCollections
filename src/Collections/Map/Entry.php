@@ -24,11 +24,4 @@ interface Entry {
 	 * @return mixed The old value corresponding to this entry.
 	*/
 	function setValue( $value );
-
-	/**
-	 * Returns the hash code for this map entry.
-	 *
-	 * @return integer
-	*/
-	function hashCode();
 }

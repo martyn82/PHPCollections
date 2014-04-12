@@ -24,13 +24,6 @@ class GenericEntry implements Entry {
 	}
 
 	/**
-	 * @see MapEntry::hashCode()
-	 */
-	public function hashCode() {
-		return crc32( $this->key );
-	}
-
-	/**
 	 * @see MapEntry::getKey()
 	 */
 	public function getKey() {
