@@ -149,6 +149,9 @@ class AbstractMapTest extends \TestCase {
 
 		$result = $map->remove( 'foo' );
 		self::assertEquals( 'bar', $result );
+
+		$result = $map->remove( 'baz' );
+		self::assertNull( $result );
 	}
 
 	public function testSize() {
