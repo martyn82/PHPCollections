@@ -3,4 +3,4 @@
 set -e
 set -u
 
-vendor/bin/phpunit
+./vendor/bin/phpunit
