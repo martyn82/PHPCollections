@@ -1,6 +1,7 @@
 .settings/
 .buildpath
 .project
+vendor/
 test/coverage/
 coverage.xml
 test-report.xml
