@@ -46,7 +46,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::contains()
 	 */
 	public function contains( $element ) {
-		$index = array_search( $element, $this->elements, true );
+		$index = \array_search( $element, $this->elements, true );
 		return $index !== false;
 	}
 
@@ -54,7 +54,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::containsAll()
 	 */
 	public function containsAll( Collection $elements ) {
-		return count( array_diff( $elements->toArray(), $this->elements ) ) == 0;
+		return \count( \array_diff( $elements->toArray(), $this->elements ) ) == 0;
 	}
 
 	/**
@@ -75,14 +75,14 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::remove()
 	 */
 	public function remove( $element ) {
-		$index = array_search( $element, $this->elements, true );
+		$index = \array_search( $element, $this->elements, true );
 
 		if ( $index === false ) {
 			return false;
 		}
 
 		unset( $this->elements[ $index ] );
-		$this->elements = array_values( $this->elements );
+		$this->elements = \array_values( $this->elements );
 		return true;
 	}
 
@@ -103,7 +103,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::retainAll()
 	 */
 	public function retainAll( Collection $elements ) {
-		$newElements = array_values( array_intersect( $this->elements, $elements->toArray() ) );
+		$newElements = \array_values( \array_intersect( $this->elements, $elements->toArray() ) );
 		$result = $newElements != $this->elements;
 		$this->elements = $newElements;
 		return $result;
@@ -113,7 +113,7 @@ abstract class AbstractCollection implements Collection {
 	 * @see Collection::size()
 	 */
 	public function size() {
-		return count( $this->elements );
+		return \count( $this->elements );
 	}
 
 	/**

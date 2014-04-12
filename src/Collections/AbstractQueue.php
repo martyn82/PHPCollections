@@ -17,7 +17,7 @@ abstract class AbstractQueue extends AbstractCollection implements Queue {
 			return null;
 		}
 
-		return array_pop( $this->elements );
+		return \array_pop( $this->elements );
 	}
 
 	/**
@@ -28,6 +28,6 @@ abstract class AbstractQueue extends AbstractCollection implements Queue {
 			throw new \UnderflowException( "Queue is empty." );
 		}
 
-		return end( $this->elements );
+		return \end( $this->elements );
 	}
 }

@@ -7,7 +7,7 @@ abstract class AbstractList extends AbstractCollection implements IList {
 	 */
 	public function addAt( $index, $element ) {
 		$index = $this->validateIndex( $index );
-		$tail = array_slice( $this->elements, $index );
+		$tail = \array_slice( $this->elements, $index );
 		$this->elements[ $index ] = $element;
 
 		foreach ( $tail as $nextElement ) {
@@ -22,7 +22,7 @@ abstract class AbstractList extends AbstractCollection implements IList {
 	 */
 	public function addAllAt( $index, Collection $elements ) {
 		$index = $this->validateIndex( $index );
-		$tail = array_slice( $this->elements, $index );
+		$tail = \array_slice( $this->elements, $index );
 
 		foreach ( $elements->toArray() as $newElement ) {
 			$this->elements[ $index++ ] = $newElement;
@@ -61,7 +61,7 @@ abstract class AbstractList extends AbstractCollection implements IList {
 	 * @see IList::indexOf()
 	 */
 	public function indexOf( $element ) {
-		$index = array_search( $element, $this->elements );
+		$index = \array_search( $element, $this->elements );
 		return (int) ( $index === false ? -1 : $index );
 	}
 
@@ -69,8 +69,8 @@ abstract class AbstractList extends AbstractCollection implements IList {
 	 * @see IList::lastIndexOf()
 	 */
 	public function lastIndexOf( $element ) {
-		$reversed = array_reverse( $this->elements, true );
-		$index = array_search( $element, $reversed );
+		$reversed = \array_reverse( $this->elements, true );
+		$index = \array_search( $element, $reversed );
 		return (int) ( $index === false ? -1 : $index );
 	}
 
@@ -82,7 +82,7 @@ abstract class AbstractList extends AbstractCollection implements IList {
 		$result = $this->elements[ $index ];
 
 		unset( $this->elements[ $index ] );
-		$this->elements = array_values( $this->elements );
+		$this->elements = \array_values( $this->elements );
 
 		return $result;
 	}
@@ -114,7 +114,7 @@ abstract class AbstractList extends AbstractCollection implements IList {
 			throw new \InvalidArgumentException( "Left bound must not be larger than right bound." );
 		}
 
-		$portion = array_slice( $this->elements, $fromIndex, $toIndex - $fromIndex );
+		$portion = \array_slice( $this->elements, $fromIndex, $toIndex - $fromIndex );
 
 		$subList = new static();
 		$subList->elements = $portion;
