@@ -10,4 +10,5 @@ branches:
 
 script:
   - composer self-update
+  - composer install
   - ./run-tests
