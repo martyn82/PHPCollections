@@ -3,6 +3,8 @@ PHPCollections
 
 [![Build Status](https://travis-ci.org/martyn82/PHPAnalyzer.png?branch=master)](https://travis-ci.org/martyn82/PHPCollections)
 
+[Ohloh analysis report](https://www.ohloh.net/p/php-collections)
+
 
 The PHP Collections library is an implementation of the Java Collections library in PHP. You may use it in your own
 project to have semantically correct alternatives to the PHP array.
